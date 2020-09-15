@@ -131,28 +131,34 @@ public class VirtualPetShelterTest {
 
     @Test
     public void fillWaterBowlsShouldWaterAll(){
+        underTestShelter.intake(underTest);
+        underTestShelter.intake(adoptablePet);
         underTestShelter.fillWaterBowls();
-        adoptablePet.water();
         assertEquals(adoptablePet.getThirst(), 0);
+        assertEquals(underTest.getThirst(), 0);
     }
 
     @Test
     public void cleanPoopShouldGiveHygieneToAll(){
+        underTestShelter.intake(underTest);
+        underTestShelter.intake(adoptablePet);
         underTestShelter.cleanPoop();
-        adoptablePet.pottyTime();
         assertEquals(adoptablePet.getHygiene(), 0);
+        assertEquals(underTest.getHygiene(), 0);
     }
 
     @Test
     public void playWithAllShouldBeFunForAll(){
+        underTestShelter.intake(underTest);
+        underTestShelter.intake(adoptablePet);
         underTestShelter.playWithAllPets();
-        adoptablePet.play();
         assertEquals(adoptablePet.getFun(), 0);
+        assertEquals(underTest.getFun(), 0);
     }
     @Test
     public void tickAllPets(){
+        underTestShelter.intake(adoptablePet);
         underTestShelter.tickMethod();
-        adoptablePet.tick();
         assertEquals(adoptablePet.getHygiene(), 11 );
     }
 
